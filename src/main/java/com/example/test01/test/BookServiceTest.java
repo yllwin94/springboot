@@ -1,6 +1,7 @@
 package com.example.test01.test;
 
 import com.example.test01.service.BookService;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -11,7 +12,10 @@ public class BookServiceTest {
     @Autowired
     private BookService bookService;
 
+    @Test
+    public void test(){
 
+    }
 
 
 }
