@@ -64,7 +64,7 @@ public class RandomPortTest {
      * 测试：删除功能是否正常
      */
     @ParameterizedTest
-    @ValueSource(ints = {10, 11})
+    @ValueSource(ints = {12, 13})
     public void testRestDelete(Integer id){
         restTemplate.delete("/rest/books/{0}", id);
     }
