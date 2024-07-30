@@ -45,8 +45,8 @@ public class RandomPortTest {
      */
     @ParameterizedTest
     @CsvSource({"水浒传,施耐庵,54", "红楼梦,曹雪芹,56"})
-    public void testRestAddBook(String title, String author, double price){
-        Book book = new Book(title, author, price);
+    public void testRestAddBook(String book_title, String book_author, double book_price){
+        Book book = new Book(book_title, book_author, book_price);
         var result = restTemplate.postForObject("/rest/books", book, Map.class);
         Assertions.assertEquals(result.get("tip"),"添加成功");
     }
@@ -65,7 +65,7 @@ public class RandomPortTest {
      */
     @ParameterizedTest
     @ValueSource(ints = {12, 13})
-    public void testRestDelete(Integer id){
-        restTemplate.delete("/rest/books/{0}", id);
+    public void testRestDelete(Integer book_id){
+        restTemplate.delete("/rest/books/{0}", book_id);
     }
 }

@@ -32,14 +32,14 @@ public class BookServiceTest {
 
     /**
      * 测试：添加数据的功能是否正常
-     * @param title
-     * @param author
-     * @param price
+     * @param book_title
+     * @param book_author
+     * @param book_price
      */
     @ParameterizedTest
     @CsvSource({"疯狂Java讲义, 李刚, 129", "疯狂Java讲义2, 李刚, 138"})
-    public void testAddBook(String title, String author, double price){
-        var book = new Book(title, author, price);
+    public void testAddBook(String book_title, String book_author, double book_price){
+        var book = new Book(book_title, book_author, book_price);
         Integer result = bookService.addBook(book);
         System.out.println(result);
         Assertions.assertNotEquals(result, 0);
@@ -47,12 +47,12 @@ public class BookServiceTest {
 
     /**
      * 测试：删除数据的功能是否正常
-     * @param id
+     * @param book_id
      */
     @ParameterizedTest
     @ValueSource(ints = {1, 2})
-    public void testDeleteBook(Integer id){
-        bookService.deleteBook(id);
+    public void testDeleteBook(Integer book_id){
+        bookService.deleteBook(book_id);
     }
 
 

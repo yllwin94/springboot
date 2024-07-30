@@ -37,10 +37,10 @@ public class MockTest {
         // 模拟bookDao的findAll（）方法的返回值
         BDDMockito.given(this.bookDao.findAll()).willReturn(List.of(new Book("测试1", "李刚", 89.9), new Book("测试2", "yeeku", 99.9)));
         List<Book> result = bookService.getAllBooks();
-        Assertions.assertEquals(result.get(0).getTitle(), "测试1");
-        Assertions.assertEquals(result.get(0).getAuthor(), "李刚");
-        Assertions.assertEquals(result.get(1).getTitle(), "测试2");
-        Assertions.assertEquals(result.get(1).getAuthor(), "yeeku");
+        Assertions.assertEquals(result.get(0).getBook_title(), "测试1");
+        Assertions.assertEquals(result.get(0).getBook_author(), "李刚");
+        Assertions.assertEquals(result.get(1).getBook_title(), "测试2");
+        Assertions.assertEquals(result.get(1).getBook_author(), "yeeku");
     }
 
 }

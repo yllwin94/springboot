@@ -49,15 +49,15 @@ public class MockEnvTest {
 
     /**
      * 测试addBook方法
-     * @param title
-     * @param author
-     * @param price
+     * @param book_title
+     * @param book_author
+     * @param book_price
      * @throws Exception
      */
     @ParameterizedTest
     @CsvSource({"it's our ship,lily.Yin,100", "nothing is impossible,lily.Yin,300"})
-    public void testAddBook(String title, String author, double price) throws Exception {
-        var result = mvc.perform(MockMvcRequestBuilders.post(new URI("/addBook")).param("title",title).param("author",author).param("price",price+"")).andReturn().getModelAndView();
+    public void testAddBook(String book_title, String book_author, double book_price) throws Exception {
+        var result = mvc.perform(MockMvcRequestBuilders.post(new URI("/addBook")).param("book_title",book_title).param("book_author",book_author).param("book_price",book_price+"")).andReturn().getModelAndView();
         Assertions.assertEquals("redirect:listBooks", result.getViewName());
     }
 
@@ -75,13 +75,13 @@ public class MockEnvTest {
 
     /**
      * 测试delete方法
-     * @param id
+     * @param book_id
      * @throws Exception
      */
     @ParameterizedTest
     @ValueSource(ints = {15, 16})
-    public void testDelete(Integer id) throws Exception {
-        var result = mvc.perform(MockMvcRequestBuilders.get("/deleteBook?id={0}", id)).andReturn().getModelAndView();
+    public void testDelete(Integer book_id) throws Exception {
+        var result = mvc.perform(MockMvcRequestBuilders.get("/deleteBook?book_id={0}", book_id)).andReturn().getModelAndView();
         Assertions.assertEquals("redirect:listBooks", result.getViewName());
     }
 

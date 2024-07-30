@@ -17,10 +17,10 @@
                 <th>操作</th>
             </tr>
             <tr th:each="book:${books}">
-                <td th:text="${book.title}">书名</td>
-                <td th:text="${book.author}">作者</td>
-                <td th:text="${book.price}">0</td>
-                <td><a th:href="@{/deleteBook?id=} + ${book.id}">删除</a></td>
+                <td th:text="${book.book_title}">书名</td>
+                <td th:text="${book.book_author}">作者</td>
+                <td th:text="${book.book_price}">0</td>
+                <td><a th:href="@{/deleteBook?id=} + ${book.book_id}">删除</a></td>
             </tr>
         </table>
         <div class="text-right"><a class="btn btn-primary" th:href="@{/}">添加图书</a></div>
