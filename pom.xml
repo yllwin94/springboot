@@ -14,6 +14,7 @@
     <artifactId>test01</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>test01</name>
+    <packaging>war</packaging>
     <description>test01</description>
     <properties>
         <java.version>11</java.version>
