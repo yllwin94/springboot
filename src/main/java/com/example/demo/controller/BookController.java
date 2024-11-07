@@ -14,8 +14,8 @@ public class BookController {
 
     /**
      * 访问主页
-     * @param model
-     * @return
+     * @param model io
+     * @return hello view
      */
     @GetMapping("/index")
     public String index(Model model){
@@ -25,7 +25,7 @@ public class BookController {
 
     @GetMapping("/book")
     @ResponseBody
-    public ResponseEntity<Map<String, String>> book(Model model){
+    public ResponseEntity<Map<String, String>> book(){
         return new ResponseEntity<>(Map.of("name","lily's book", "price", "100"), HttpStatus.OK);
     }
 
