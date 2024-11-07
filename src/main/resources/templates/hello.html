@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎页面</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.css}">
+</head>
+<body>
+    <div class="container">
+        <div th:text="${tip}" class="alert alert-primary">提示信息</div>
+    </div>
+</body>
+</html>

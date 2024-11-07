@@ -45,6 +45,17 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <!--一定要引入thymeleaf依赖，不然无法找到html文件-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>4.6.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
