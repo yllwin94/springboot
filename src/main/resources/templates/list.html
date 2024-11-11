@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>图书列表页面</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.0/css/bootstrap.css}">
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.5.0/jquery.js}"></script>
+</head>
+<body>
+<div class="container">
+    <h2>全部图书</h2>
+    <table class="table table-hover">
+        <tr>
+            <th>书名</th>
+            <th>作者</th>
+            <th>价格</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="book:${books}">
+            <td th:text="${book.bookTitle}">书名</td>
+            <td th:text="${book.bookAuthor}">作者</td>
+            <td th:text="${book.bookPrice}">0</td>
+            <td><a th:href="@{/deleteBook/} + ${book.bookId}">删除</a></td>
+        </tr>
+    </table>
+    <div class="text-right"><a class="btn btn-primary" th:href="@{/index}">添加图书</a></div>
+</div>
+</body>
+</html>
