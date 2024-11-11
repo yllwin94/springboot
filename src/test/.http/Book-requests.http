@@ -1,0 +1,27 @@
+###图书管理的所有接口http测试请求###
+
+###Restful接口：添加图书
+POST http://localhost:8080/rest/addBook
+Content-Type: application/json
+
+{
+  "bookTitle":"http-request",
+  "bookAuthor":"IDEA",
+  "bookPrice":100
+}
+
+###Restful接口：图书列表
+GET http://localhost:8080/rest/listBooks
+
+###Restful接口：删除图书
+###http://localhost:8080/rest/deleteBook/{id} 更改id即可
+DELETE http://localhost:8080/rest/deleteBook/1033
+
+
+
+
+
+
+
+
+
