@@ -1,4 +1,4 @@
-package com.example.demo.bookManageTest;
+package com.example.demo.controller;
 
 import com.example.demo.model.BookInfo;
 import org.junit.jupiter.api.Assertions;
@@ -33,16 +33,23 @@ public class RestBookControllerTest {
         Assertions.assertEquals(postObj.getBookPrice(), returnObj.getBookPrice());
     }
 
-    @ParameterizedTest
-    @ValueSource(ints = {1031, 1032, 1039})
-    public void testDeleteBook(Integer id) {
-        restTemplate.delete("/rest/deleteBook/{0}", id);
-    }
-
     @Test
-    public void testListBooks() {
+    public void testRestListBooks() {
         var books = restTemplate.getForObject("/rest/listBooks", List.class);
         books.forEach(System.out::println);
+    }
+
+    /**
+     * 单元测试：删除图书
+     * 注意：先调整参数
+     * 备注：先把操作注释掉，先通过全部测试，最后再来看删除方法
+     *
+     * @param id
+     */
+    @ParameterizedTest
+    @ValueSource(ints = {1071, 1072})
+    public void testRestDeleteBook(Integer id) {
+//        restTemplate.delete("/rest/deleteBook/{0}", id);
     }
 
 }
