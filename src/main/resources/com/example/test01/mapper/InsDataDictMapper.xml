@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.test01.dao.InsDataDictMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.test01.entity.InsDataDict">
+            <id property="id" column="id" />
+            <result property="type" column="type" />
+            <result property="name" column="name" />
+            <result property="preType" column="pre_type" />
+            <result property="preDvalue" column="pre_dvalue" />
+            <result property="dvalue" column="dvalue" />
+            <result property="dlabel" column="dlabel" />
+            <result property="remark" column="remark" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,type,name,pre_type,pre_dvalue,dvalue,
+        dlabel,remark
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_ins_data_dict
+        where  id = #{id} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from t_ins_data_dict
+        where  id = #{id} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.test01.entity.InsDataDict" useGeneratedKeys="true">
+        insert into t_ins_data_dict
+        ( id,type,name,pre_type,pre_dvalue,dvalue,
+        dlabel,remark)
+        values (#{id},#{type},#{name},#{preType},#{preDvalue},#{dvalue},
+        #{dlabel},#{remark})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.test01.entity.InsDataDict" useGeneratedKeys="true">
+        insert into t_ins_data_dict
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="type != null">type,</if>
+                <if test="name != null">name,</if>
+                <if test="preType != null">pre_type,</if>
+                <if test="preDvalue != null">pre_dvalue,</if>
+                <if test="dvalue != null">dvalue,</if>
+                <if test="dlabel != null">dlabel,</if>
+                <if test="remark != null">remark,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="type != null">#{type},</if>
+                <if test="name != null">#{name},</if>
+                <if test="preType != null">#{preType},</if>
+                <if test="preDvalue != null">#{preDvalue},</if>
+                <if test="dvalue != null">#{dvalue},</if>
+                <if test="dlabel != null">#{dlabel},</if>
+                <if test="remark != null">#{remark},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.example.test01.entity.InsDataDict">
+        update t_ins_data_dict
+        <set>
+                <if test="type != null">
+                    type = #{type},
+                </if>
+                <if test="name != null">
+                    name = #{name},
+                </if>
+                <if test="preType != null">
+                    pre_type = #{preType},
+                </if>
+                <if test="preDvalue != null">
+                    pre_dvalue = #{preDvalue},
+                </if>
+                <if test="dvalue != null">
+                    dvalue = #{dvalue},
+                </if>
+                <if test="dlabel != null">
+                    dlabel = #{dlabel},
+                </if>
+                <if test="remark != null">
+                    remark = #{remark},
+                </if>
+        </set>
+        where   id = #{id} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.example.test01.entity.InsDataDict">
+        update t_ins_data_dict
+        set 
+            type =  #{type},
+            name =  #{name},
+            pre_type =  #{preType},
+            pre_dvalue =  #{preDvalue},
+            dvalue =  #{dvalue},
+            dlabel =  #{dlabel},
+            remark =  #{remark}
+        where   id = #{id} 
+    </update>
+</mapper>
